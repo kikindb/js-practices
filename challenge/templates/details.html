@@ -1,0 +1,44 @@
+<!--
+    add id="rest-name" to the element that displays restaurant's name
+    add id="rest-neighborhood"  to the element that displays the neighborhood of the restaurant
+    add id="rest-cuisine" to the element that displays the restaurant's cuisine type
+    add id="rest-address" to the element that displays the restaurant's address
+    add class='operating-week' to the elements that display week days of oprating hours
+    add class='operating-timing' to the elements that display timings of oprating hours
+    add class=class="review-name"  to the elements that display commentor's name
+    add class=class="review-comment"  to the elements that display comments
+    add class=class="review-rating"  to the elements that display rating (x/5)
+    add class=class="review-date"  to the elements that display review date
+
+-->
+<ion-view view-title="Details" has-header="true" padding="true">
+  <ion-content padding="true">
+    <ion-item class="item item-icon-left">
+      <i class="icon ion-pizza"></i>
+      <h2 class="rest-name" id="rest-name">Name: {{restaurant.name}}</h2>
+      <span class="rest-neighborhood" id="rest-neighborhood">Neighborhood: {{restaurant.neighborhood}}</span>
+    </ion-item>
+    <ion-card>
+      <ion-item>
+        <p id="rest-address">{{restaurant.address}}</p>
+        <p id="rest-cuisine">Cuisine Type: {{restaurant.cuisine_type}}</p>
+        <p>Operating hours: </p>
+        <div ng-repeat="(key, hour) in restaurant.operating_hours">
+          <span class="operating-week">{{key}}</span>
+          <span class="operating-timing">{{hour}}</span>
+        </div>
+      </ion-item>
+    </ion-card>
+    <h2>Reviews: </h2>
+    <ion-card padding="true" ng-repeat="review in restaurant.reviews">
+      <ion-item padding="true">
+        <h2 class="review-name">{{review.name}}</h2>
+        <p class="review-comment">{{review.comments}}</p>
+        <div>
+          <span class="review-rating">Rating: {{review.rating}}/5</span>
+          <span class="review-date">{{review.date}}</span>
+        </div>
+      </ion-item>
+    </ion-card>
+  </ion-content>
+</ion-view>
